@@ -1,6 +1,7 @@
 import Head from 'next/head';
+import { NextPage } from 'next';
 
-const about = () => {
+const about: NextPage = () => {
   return (
     <div>
       <Head>
