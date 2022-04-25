@@ -1,11 +1,11 @@
 import styles from '../styles/Layout.module.scss';
-import React from 'react';
+import React, { FC } from 'react';
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
-const Layout = (props: LayoutProps) => {
+const Layout: FC<LayoutProps> = (props) => {
   const { children } = props;
 
   return (
