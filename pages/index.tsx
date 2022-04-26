@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { Article } from '../models/Article';
+import ArticleList from '../components/ArticleList';
 
 interface Props {
   articles: Article[];
@@ -16,7 +17,7 @@ const Home: NextPage<Props> = (props) => {
         <meta name='keywords' content='web development, programming' />
       </Head>
 
-      {articles.map(article => <h3>{article.title}</h3>)}
+      <ArticleList articles={articles} />
     </div>
   );
 };
