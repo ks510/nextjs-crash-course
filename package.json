@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "lint": "next lint"
   },
@@ -22,6 +22,7 @@
     "eslint-config-prettier": "8.5.0",
     "prettier": "2.6.2",
     "sass": "1.50.1",
-    "typescript": "4.6.3"
+    "typescript": "4.6.3",
+    "serve": "13.0.2"
   }
 }
