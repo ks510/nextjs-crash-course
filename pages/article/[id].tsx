@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { GetServerSideProps, NextPage } from 'next';
+import { GetServerSideProps, GetStaticProps, NextPage } from 'next';
 import { Article } from '../../models/Article';
 import Link from 'next/link';
 
@@ -22,6 +22,34 @@ const Article: NextPage<Props> = (props) => {
   );
 };
 
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { params } = context;
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params!.id}`);
+
+  const article = await res.json();
+
+  return {
+    props: {
+      article
+    }
+  };
+};
+
+export const getStaticPaths = async () => {
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+
+  const articles = await res.json();
+
+  const ids = articles.map((article: Article) => article.id);
+  const paths = ids.map((id: number) => ({ params: { id: id.toString() } }));
+
+  return {
+    paths,
+    fallback: false
+  };
+};
+
+/*
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { params } = context;
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params!.id}`);
@@ -34,5 +62,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   };
 };
+*/
 
 export default Article;
