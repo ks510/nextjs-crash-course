@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { GetServerSideProps, NextPage } from 'next';
 import { Article } from '../../models/Article';
+import Link from 'next/link';
 
 interface Props {
   article: Article;
@@ -12,9 +13,12 @@ const Article: NextPage<Props> = (props) => {
     const { id } = router.query;*/
 
   return (
-    <div>
-      This is an article {article.id}
-    </div>
+    <>
+      <h1>{article.title}</h1>
+      <p>{article.body}</p>
+      <br />
+      <Link href='/'>Go Back</Link>
+    </>
   );
 };
 
