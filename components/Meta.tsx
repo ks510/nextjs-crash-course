@@ -2,9 +2,9 @@ import { FC } from 'react';
 import Head from 'next/head';
 
 interface Props {
-  title: string;
-  keywords: string;
-  description: string;
+  title?: string;
+  keywords?: string;
+  description?: string;
 }
 
 const Meta: FC<Props> = (props) => {

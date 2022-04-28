@@ -3,6 +3,7 @@ import { GetServerSideProps, GetStaticProps, NextPage } from 'next';
 import { Article } from '../../models/Article';
 import Link from 'next/link';
 import { server } from '../../config';
+import Meta from '../../components/Meta';
 
 interface Props {
   article: Article;
@@ -15,6 +16,7 @@ const Article: NextPage<Props> = (props) => {
 
   return (
     <>
+      <Meta title={article.title} />
       <h1>{article.title}</h1>
       <p>{article.body}</p>
       <br />

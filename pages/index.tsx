@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import { Article } from '../models/Article';
 import ArticleList from '../components/ArticleList';
 import { server } from '../config';
@@ -13,11 +12,6 @@ const Home: NextPage<Props> = (props) => {
 
   return (
     <div>
-      <Head>
-        <title>WebDev Newz</title>
-        <meta name='keywords' content='web development, programming' />
-      </Head>
-
       <ArticleList articles={articles} />
     </div>
   );
