@@ -1,6 +1,7 @@
 import { articles } from '../../../data';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default function handler(req: any, res: any) {
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const { id } = req.query;
 
   const filtered = articles.filter(article => article.id === id);
